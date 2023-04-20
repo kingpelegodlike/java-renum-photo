@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RenumPhoto" basedir="." default="main">
+    <!--<property name="lib.dir"     value="lib"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>-->
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" classpath="lib/sanselan-0.97-incubator.jar" includeantruntime="false"/>
+    </target>
+	<target name="jar">
+        <mkdir dir="build/jar" />
+        <jar destfile="build/jar/RenumPhoto.jar" basedir="build/classes">
+        	<zipgroupfileset dir="lib" includes="sanselan-0.97-incubator.jar" />
+            <manifest>
+                <attribute name="Main-Class" value="RenumPhoto" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/RenumPhoto.jar" fork="true" />
+    </target>
+
+    <target name="main" depends="clean,compile,jar,run"/>
+</project>
