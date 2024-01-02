@@ -324,7 +324,7 @@ class MyFilter implements FileFilter {
         if (file_name == null)
             result = true;
         else {
-            if ((file_name.endsWith(".JPG"))||(file_name.endsWith(".jpg")))
+            if ((file_name.endsWith(".JPG"))||(file_name.endsWith(".jpg"))||(file_name.endsWith(".JPEG"))||(file_name.endsWith(".jpeg")))
                 result = true;
             else
                 result = false;
